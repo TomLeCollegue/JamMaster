@@ -1,0 +1,64 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id("androidx.navigation.safeargs")
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.entreprisecorp.jammaster"
+        minSdkVersion 26
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:_"
+    implementation 'androidx.core:core-ktx:_'
+    implementation 'androidx.appcompat:appcompat:_'
+    implementation 'com.google.android.material:material:_'
+    implementation 'androidx.constraintlayout:constraintlayout:_'
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:_"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:_"
+    implementation "androidx.navigation:navigation-ui-ktx:_"
+    implementation "androidx.navigation:navigation-fragment-ktx:_"
+
+
+    //Test
+    testImplementation 'junit:junit:_'
+    androidTestImplementation 'androidx.test.ext:junit:_'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:_'
+
+
+    //Fast adapter
+    implementation "com.mikepenz:fastadapter:_"
+    implementation "com.mikepenz:fastadapter-extensions-binding:_"
+    implementation "com.mikepenz:fastadapter-extensions-utils:_"
+}

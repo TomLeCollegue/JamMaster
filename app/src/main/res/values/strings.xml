@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">JamMaster</string>
+    <string name="lets_jam_desc">You just have to click and you are ready to jam, the app is choosing a key for you !</string>
+    <string name="lets_jam_title">Let\'s Jam</string>
+    <string name="train_your_skills_title">Train your skills</string>
+    <string name="train_your_skills_desc">Choose a key and explore what you can do on your guitar</string>
+</resources>
