@@ -2,12 +2,13 @@ package com.entreprisecorp.jammaster.fragments
 
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.entreprisecorp.jammaster.R
 import com.entreprisecorp.jammaster.databinding.FragmentRecyclerBinding
-import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.GenericItem
 import com.mikepenz.fastadapter.adapters.GenericFastItemAdapter
 
@@ -18,6 +19,11 @@ abstract class RecyclerFragment : Fragment(R.layout.fragment_recycler) {
 
     val recyclerViewManager: RecyclerView.LayoutManager
         get() = LinearLayoutManager(activity)
+
+    val supportActionBar : ActionBar? by lazy {
+        (activity as AppCompatActivity).supportActionBar
+    }
+
 
     abstract fun refreshScreen()
 

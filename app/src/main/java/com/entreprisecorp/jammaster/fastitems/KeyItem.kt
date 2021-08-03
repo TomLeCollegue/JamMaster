@@ -6,7 +6,7 @@ import com.entreprisecorp.jammaster.R
 import com.entreprisecorp.jammaster.databinding.KeyItemBinding
 import com.mikepenz.fastadapter.binding.AbstractBindingItem
 
-class KeyItem(val key: String) : AbstractBindingItem<KeyItemBinding>() {
+class KeyItem(private val key: String) : AbstractBindingItem<KeyItemBinding>() {
 
     override val type: Int  = R.id.item_key
 
@@ -16,6 +16,6 @@ class KeyItem(val key: String) : AbstractBindingItem<KeyItemBinding>() {
 
     override fun bindView(binding: KeyItemBinding, payloads: List<Any>) {
         super.bindView(binding, payloads)
-        binding.textView.text = key
+        binding.keyTextView.text = key
     }
 }
