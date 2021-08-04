@@ -17,6 +17,7 @@ class CardItem : AbstractBindingItem<CardItemBinding>() {
     var onClickRoot: ((View) -> Unit)? = null
     var onClickButton: ((View) -> Unit)? = null
     var labelButton: String? = null
+    var transitionName: String? = null
 
     @DrawableRes
     var imageRes: Int? = null
@@ -30,14 +31,18 @@ class CardItem : AbstractBindingItem<CardItemBinding>() {
         binding.apply {
             titleTextView.text = title
             descTextView.text = description
-            root.setOnClickListener {
-                onClickRoot?.let { it1 -> it1(root) }
+            transitionName?.let {
+                card.transitionName = it
             }
 
-            if(labelButton != null) {
+            root.setOnClickListener {
+                onClickRoot?.let { it1 -> it1(card) }
+            }
+
+            if (labelButton != null) {
                 buttonCard.text = title
                 buttonCard.setOnClickListener {
-                    onClickButton?.let { it1 -> it1(root) }
+                    onClickButton?.let { it1 -> it1(card) }
                 }
             } else {
                 buttonCard.visibility = View.GONE
@@ -49,6 +54,7 @@ class CardItem : AbstractBindingItem<CardItemBinding>() {
     override fun unbindView(binding: CardItemBinding) {
         super.unbindView(binding)
         binding.apply {
+            card.transitionName = null
             titleTextView.text = null
             descTextView.text = null
             root.setOnClickListener(null)

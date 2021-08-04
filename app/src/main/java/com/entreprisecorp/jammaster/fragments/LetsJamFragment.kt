@@ -17,13 +17,14 @@ class LetsJamFragment : RecyclerFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        supportActionBar?.hide()
 
+        binding.recyclerView.transitionName = getString(R.string.email_card_detail_transition_name)
+        supportActionBar?.hide()
         sharedElementEnterTransition = MaterialContainerTransform().apply {
             // Scope the transition to a view in the hierarchy so we know it will be added under
             // the bottom app bar but over the elevation scale of the exiting HomeFragment.
             drawingViewId = R.id.navHostFragment
-            duration = 300
+            duration = resources.getInteger(R.integer.duration_transition).toLong()
             scrimColor = Color.TRANSPARENT
             setAllContainerColors(requireContext().themeColor(R.attr.colorSurface))
         }

@@ -49,12 +49,9 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:_"
     implementation "androidx.navigation:navigation-ui-ktx:_"
     implementation "androidx.navigation:navigation-fragment-ktx:_"
+    implementation "androidx.fragment:fragment-ktx:_"
 
 
-    //Test
-    testImplementation 'junit:junit:_'
-    androidTestImplementation 'androidx.test.ext:junit:_'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:_'
 
 
     //Fast adapter

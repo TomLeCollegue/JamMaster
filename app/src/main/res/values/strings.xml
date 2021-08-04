@@ -4,4 +4,7 @@
     <string name="lets_jam_title">Let\'s Jam</string>
     <string name="train_your_skills_title">Train your skills</string>
     <string name="train_your_skills_desc">Choose a key and explore what you can do on your guitar</string>
+
+    <string name="email_card_transition_name">email_card_</string>
+    <string name="email_card_detail_transition_name">email_card_detail</string>
 </resources>

@@ -2,6 +2,7 @@
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -18,7 +19,8 @@
             android:layout_height="194dp"
             android:contentDescription="@string/lets_jam_desc"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/jam_image" />
+            app:srcCompat="@drawable/jam_image"
+            tools:ignore="RedundantDescriptionCheck" />
 
         <LinearLayout
             android:layout_width="match_parent"

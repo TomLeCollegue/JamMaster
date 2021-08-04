@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,26 +15,32 @@ import com.mikepenz.fastadapter.adapters.GenericFastItemAdapter
 
 abstract class RecyclerFragment : Fragment(R.layout.fragment_recycler) {
 
-    private lateinit var binding: FragmentRecyclerBinding
-    val fastAdapter = GenericFastItemAdapter()
+    lateinit var binding: FragmentRecyclerBinding
+    val fastAdapter: GenericFastItemAdapter = GenericFastItemAdapter()
 
-    val recyclerViewManager: RecyclerView.LayoutManager
+    private val recyclerViewManager: RecyclerView.LayoutManager
         get() = LinearLayoutManager(activity)
 
-    val supportActionBar : ActionBar? by lazy {
+    val supportActionBar: ActionBar? by lazy {
         (activity as AppCompatActivity).supportActionBar
     }
-
 
     abstract fun refreshScreen()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        supportActionBar?.show()
+        postponeEnterTransition()
+        view.doOnPreDraw { startPostponedEnterTransition() }
         binding = FragmentRecyclerBinding.bind(view)
         binding.recyclerView.apply {
             layoutManager = recyclerViewManager
             this.adapter = fastAdapter
         }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         refreshScreen()
     }
 
