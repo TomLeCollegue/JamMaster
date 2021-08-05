@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView"
+        style="@style/TextAppearance.MyTheme.Headline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_medium"
+        android:text="@string/chords_of_the_key"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/ICardView"
+            android:layout_marginStart="@dimen/spacing_medium"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_weight="1">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    style="@style/TextAppearance.MyTheme.Headline1"
+                    android:textColor="?colorPrimary"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:text="I" />
+                <TextView
+                    android:layout_width="match_parent"
+                    style="@style/TextAppearance.MyTheme.Headline1"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:text="Am" />
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:layout_marginBottom="@dimen/spacing_small"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/IICardView"
+                    android:layout_margin="@dimen/spacing_small"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            style="@style/TextAppearance.MyTheme.Headline6"
+                            android:textColor="?colorPrimary"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="@dimen/spacing_medium"
+                            android:layout_marginStart="@dimen/spacing_medium"
+                            android:layout_weight="1"
+                            android:text="II" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            style="@style/TextAppearance.MyTheme.Headline4"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:layout_weight="1"
+                            android:text="B°" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/IIICardView"
+                    android:layout_margin="@dimen/spacing_small"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            style="@style/TextAppearance.MyTheme.Headline6"
+                            android:textColor="?colorPrimary"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="@dimen/spacing_medium"
+                            android:layout_marginStart="@dimen/spacing_medium"
+                            android:layout_weight="1"
+                            android:text="II" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            style="@style/TextAppearance.MyTheme.Headline4"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:layout_weight="1"
+                            android:text="B°" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/IVCardView"
+                    android:layout_margin="@dimen/spacing_small"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            style="@style/TextAppearance.MyTheme.Headline6"
+                            android:textColor="?colorPrimary"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="@dimen/spacing_medium"
+                            android:layout_marginStart="@dimen/spacing_medium"
+                            android:layout_weight="1"
+                            android:text="II" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            style="@style/TextAppearance.MyTheme.Headline4"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:layout_weight="1"
+                            android:text="B°" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/VCardView"
+                    android:layout_margin="@dimen/spacing_small"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            style="@style/TextAppearance.MyTheme.Headline6"
+                            android:textColor="?colorPrimary"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="@dimen/spacing_medium"
+                            android:layout_marginStart="@dimen/spacing_medium"
+                            android:layout_weight="1"
+                            android:text="II" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            style="@style/TextAppearance.MyTheme.Headline4"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:layout_weight="1"
+                            android:text="B°" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/VICardView"
+                    android:layout_margin="@dimen/spacing_small"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            style="@style/TextAppearance.MyTheme.Headline6"
+                            android:textColor="?colorPrimary"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="@dimen/spacing_medium"
+                            android:layout_marginStart="@dimen/spacing_medium"
+                            android:layout_weight="1"
+                            android:text="II" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            style="@style/TextAppearance.MyTheme.Headline4"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:layout_weight="1"
+                            android:text="B°" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/VIICardView"
+                    android:layout_margin="@dimen/spacing_small"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            style="@style/TextAppearance.MyTheme.Headline6"
+                            android:textColor="?colorPrimary"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="@dimen/spacing_medium"
+                            android:layout_marginStart="@dimen/spacing_medium"
+                            android:layout_weight="1"
+                            android:text="II" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            style="@style/TextAppearance.MyTheme.Headline4"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:layout_weight="1"
+                            android:text="B°" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
