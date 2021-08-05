@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/chordTitleTextView"
         style="@style/TextAppearance.MyTheme.Headline5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,236 +17,303 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
+        android:id="@+id/chordsLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="@+id/textView"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintStart_toStartOf="@+id/chordTitleTextView"
+        app:layout_constraintTop_toBottomOf="@+id/chordTitleTextView">
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/ICardView"
-            android:layout_marginStart="@dimen/spacing_medium"
-            android:layout_marginTop="@dimen/spacing_medium"
-            android:layout_marginBottom="@dimen/spacing_medium"
-            android:layout_marginEnd="@dimen/spacing_small"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:layout_weight="1">
+            android:layout_marginStart="@dimen/spacing_medium"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:checkable="true">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+
                 <TextView
-                    android:layout_width="match_parent"
+                    android:id="@+id/INumberTextView"
                     style="@style/TextAppearance.MyTheme.Headline1"
-                    android:textColor="?colorPrimary"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
                     android:layout_weight="1"
-                    android:text="I" />
+                    android:gravity="center"
+                    android:text="I"
+                    android:textColor="?colorPrimary" />
+
                 <TextView
-                    android:layout_width="match_parent"
                     style="@style/TextAppearance.MyTheme.Headline1"
+                    android:id="@+id/IChordTextView"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
                     android:layout_weight="1"
+                    android:gravity="center"
                     android:text="Am" />
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/spacing_small"
             android:layout_marginEnd="@dimen/spacing_small"
             android:layout_marginBottom="@dimen/spacing_small"
-            android:layout_marginTop="@dimen/spacing_small"
             android:layout_weight="1"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
+
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/IICardView"
-                    android:layout_margin="@dimen/spacing_small"
-                    android:layout_height="match_parent"
                     android:layout_width="match_parent"
-                    android:layout_weight="1">
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/spacing_small"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:checkable="true">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
+
                         <TextView
-                            android:layout_width="match_parent"
+                            android:id="@+id/IINumberTextView"
                             style="@style/TextAppearance.MyTheme.Headline6"
-                            android:textColor="?colorPrimary"
-                            android:layout_height="match_parent"
-                            android:gravity="center_vertical"
-                            android:layout_marginTop="@dimen/spacing_medium"
-                            android:layout_marginStart="@dimen/spacing_medium"
-                            android:layout_weight="1"
-                            android:text="II" />
-                        <TextView
                             android:layout_width="match_parent"
-                            style="@style/TextAppearance.MyTheme.Headline4"
                             android:layout_height="match_parent"
-                            android:gravity="center"
+                            android:layout_marginStart="@dimen/spacing_medium"
+                            android:layout_marginTop="@dimen/spacing_medium"
                             android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="II"
+                            android:textColor="?colorPrimary" />
+
+                        <TextView
+                            style="@style/TextAppearance.MyTheme.Headline4"
+                            android:layout_width="match_parent"
+                            android:id="@+id/IIChordTextView"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
                             android:text="B°" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
+
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/IIICardView"
-                    android:layout_margin="@dimen/spacing_small"
-                    android:layout_height="match_parent"
                     android:layout_width="match_parent"
-                    android:layout_weight="1">
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/spacing_small"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:checkable="true">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
+
                         <TextView
-                            android:layout_width="match_parent"
                             style="@style/TextAppearance.MyTheme.Headline6"
-                            android:textColor="?colorPrimary"
-                            android:layout_height="match_parent"
-                            android:gravity="center_vertical"
-                            android:layout_marginTop="@dimen/spacing_medium"
-                            android:layout_marginStart="@dimen/spacing_medium"
-                            android:layout_weight="1"
-                            android:text="II" />
-                        <TextView
                             android:layout_width="match_parent"
-                            style="@style/TextAppearance.MyTheme.Headline4"
+                            android:id="@+id/IIINumberTextView"
                             android:layout_height="match_parent"
-                            android:gravity="center"
+                            android:layout_marginStart="@dimen/spacing_medium"
+                            android:layout_marginTop="@dimen/spacing_medium"
                             android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="II"
+                            android:textColor="?colorPrimary" />
+
+                        <TextView
+                            style="@style/TextAppearance.MyTheme.Headline4"
+                            android:layout_width="match_parent"
+                            android:id="@+id/IIIChordTextView"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
                             android:text="B°" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
+
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/IVCardView"
-                    android:layout_margin="@dimen/spacing_small"
-                    android:layout_height="match_parent"
                     android:layout_width="match_parent"
-                    android:layout_weight="1">
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/spacing_small"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:checkable="true">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
+
                         <TextView
-                            android:layout_width="match_parent"
                             style="@style/TextAppearance.MyTheme.Headline6"
-                            android:textColor="?colorPrimary"
-                            android:layout_height="match_parent"
-                            android:gravity="center_vertical"
-                            android:layout_marginTop="@dimen/spacing_medium"
-                            android:layout_marginStart="@dimen/spacing_medium"
-                            android:layout_weight="1"
-                            android:text="II" />
-                        <TextView
                             android:layout_width="match_parent"
-                            style="@style/TextAppearance.MyTheme.Headline4"
+                            android:id="@+id/IVNumberTextView"
                             android:layout_height="match_parent"
-                            android:gravity="center"
+                            android:layout_marginStart="@dimen/spacing_medium"
+                            android:layout_marginTop="@dimen/spacing_medium"
                             android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="II"
+                            android:textColor="?colorPrimary" />
+
+                        <TextView
+                            android:id="@+id/IVChordTextView"
+                            style="@style/TextAppearance.MyTheme.Headline4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
                             android:text="B°" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
+
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/VCardView"
-                    android:layout_margin="@dimen/spacing_small"
-                    android:layout_height="match_parent"
                     android:layout_width="match_parent"
-                    android:layout_weight="1">
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/spacing_small"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:checkable="true">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
+
                         <TextView
-                            android:layout_width="match_parent"
                             style="@style/TextAppearance.MyTheme.Headline6"
-                            android:textColor="?colorPrimary"
-                            android:layout_height="match_parent"
-                            android:gravity="center_vertical"
-                            android:layout_marginTop="@dimen/spacing_medium"
-                            android:layout_marginStart="@dimen/spacing_medium"
-                            android:layout_weight="1"
-                            android:text="II" />
-                        <TextView
                             android:layout_width="match_parent"
-                            style="@style/TextAppearance.MyTheme.Headline4"
+                            android:id="@+id/VNumberTextView"
                             android:layout_height="match_parent"
-                            android:gravity="center"
+                            android:layout_marginStart="@dimen/spacing_medium"
+                            android:layout_marginTop="@dimen/spacing_medium"
                             android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="II"
+                            android:textColor="?colorPrimary" />
+
+                        <TextView
+                            style="@style/TextAppearance.MyTheme.Headline4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/VChordTextView"
+                            android:layout_weight="1"
+                            android:gravity="center"
                             android:text="B°" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
+
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/VICardView"
-                    android:layout_margin="@dimen/spacing_small"
-                    android:layout_height="match_parent"
                     android:layout_width="match_parent"
-                    android:layout_weight="1">
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/spacing_small"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:checkable="true">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
+
                         <TextView
-                            android:layout_width="match_parent"
                             style="@style/TextAppearance.MyTheme.Headline6"
-                            android:textColor="?colorPrimary"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="@dimen/spacing_medium"
-                            android:layout_marginStart="@dimen/spacing_medium"
-                            android:layout_weight="1"
-                            android:text="II" />
-                        <TextView
                             android:layout_width="match_parent"
-                            style="@style/TextAppearance.MyTheme.Headline4"
                             android:layout_height="match_parent"
-                            android:gravity="center"
+                            android:id="@+id/VINumberTextView"
+                            android:layout_marginStart="@dimen/spacing_medium"
+                            android:layout_marginTop="@dimen/spacing_medium"
                             android:layout_weight="1"
+                            android:text="II"
+                            android:textColor="?colorPrimary" />
+
+                        <TextView
+                            style="@style/TextAppearance.MyTheme.Headline4"
+                            android:layout_width="match_parent"
+                            android:id="@+id/VIChordTextView"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
                             android:text="B°" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
+
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/VIICardView"
-                    android:layout_margin="@dimen/spacing_small"
-                    android:layout_height="match_parent"
                     android:layout_width="match_parent"
-                    android:layout_weight="1">
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/spacing_small"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:checkable="true">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
+
                         <TextView
-                            android:layout_width="match_parent"
                             style="@style/TextAppearance.MyTheme.Headline6"
-                            android:textColor="?colorPrimary"
-                            android:layout_height="match_parent"
-                            android:gravity="center_vertical"
-                            android:layout_marginTop="@dimen/spacing_medium"
-                            android:layout_marginStart="@dimen/spacing_medium"
-                            android:layout_weight="1"
-                            android:text="II" />
-                        <TextView
                             android:layout_width="match_parent"
-                            style="@style/TextAppearance.MyTheme.Headline4"
                             android:layout_height="match_parent"
-                            android:gravity="center"
+                            android:layout_marginStart="@dimen/spacing_medium"
+                            android:layout_marginTop="@dimen/spacing_medium"
+                            android:id="@+id/VIINumberTextView"
                             android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="II"
+                            android:textColor="?colorPrimary" />
+
+                        <TextView
+                            style="@style/TextAppearance.MyTheme.Headline4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/VIIChordTextView"
+                            android:layout_weight="1"
+                            android:gravity="center"
                             android:text="B°" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
