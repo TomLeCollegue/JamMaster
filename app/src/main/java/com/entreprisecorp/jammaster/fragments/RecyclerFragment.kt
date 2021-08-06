@@ -21,18 +21,14 @@ abstract class RecyclerFragment : Fragment(R.layout.fragment_recycler) {
     private val recyclerViewManager: RecyclerView.LayoutManager
         get() = LinearLayoutManager(activity)
 
-    val supportActionBar: ActionBar? by lazy {
-        (activity as AppCompatActivity).supportActionBar
-    }
-
     abstract fun refreshScreen()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        supportActionBar?.show()
         postponeEnterTransition()
         view.doOnPreDraw { startPostponedEnterTransition() }
         binding = FragmentRecyclerBinding.bind(view)
+        (activity as AppCompatActivity).setSupportActionBar(binding.toolbar)
         binding.recyclerView.apply {
             layoutManager = recyclerViewManager
             this.adapter = fastAdapter

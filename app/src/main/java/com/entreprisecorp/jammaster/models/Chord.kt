@@ -1,13 +1,13 @@
 package com.entreprisecorp.jammaster.models
 
-data class Chord (
+data class Chord(
     val note: Note,
-    val type: Type
+    val type: Type,
+    var degrees: Int? = null
 ) {
-    fun toDisplay() : String {
+    fun toDisplay(): String {
         return "${note.toDisplay()}${type.toDisplay()}"
     }
-
 
 }
 
@@ -19,9 +19,8 @@ enum class Note {
     A, ASHARP, B, C, CSHARP, D, DSHARP, E, F, FSHARP, G, GSHARP
 }
 
-
-fun Note.toDisplay() : String {
-    return when(this) {
+fun Note.toDisplay(): String {
+    return when (this) {
         Note.A -> "A"
         Note.ASHARP -> "A#"
         Note.B -> "B"
@@ -38,9 +37,9 @@ fun Note.toDisplay() : String {
 }
 
 fun Type.toDisplay(): String {
-    return when(this) {
+    return when (this) {
         Type.MAJOR -> ""
         Type.MINOR -> "m"
-        Type.DIMINISHED -> "dim"
+        Type.DIMINISHED -> "°"
     }
 }

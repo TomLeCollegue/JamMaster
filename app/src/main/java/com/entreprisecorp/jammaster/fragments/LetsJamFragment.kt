@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,30 +12,29 @@ import androidx.annotation.AttrRes
 import androidx.annotation.ColorInt
 import androidx.core.content.res.use
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.entreprisecorp.jammaster.R
 import com.entreprisecorp.jammaster.databinding.FragmentJamBinding
-import com.entreprisecorp.jammaster.fastitems.KeyItem
+import com.entreprisecorp.jammaster.fastitems.ChordJamItem
 import com.entreprisecorp.jammaster.models.CardViewChord
-import com.entreprisecorp.jammaster.models.Chord
-import com.entreprisecorp.jammaster.models.Note
-import com.entreprisecorp.jammaster.models.Type
-import com.google.android.material.card.MaterialCardView
+import com.entreprisecorp.jammaster.viewmodel.JamViewModel
 import com.google.android.material.transition.MaterialContainerTransform
 import com.mikepenz.fastadapter.GenericItem
+import com.mikepenz.fastadapter.adapters.GenericFastItemAdapter
+import com.mikepenz.fastadapter.drag.ItemTouchCallback
+import com.mikepenz.fastadapter.drag.SimpleDragCallback
+import com.mikepenz.fastadapter.utils.DragDropUtil
 
-class LetsJamFragment : Fragment(R.layout.fragment_jam) {
+class LetsJamFragment : Fragment(R.layout.fragment_jam), ItemTouchCallback {
 
     private lateinit var binding: FragmentJamBinding
     private var cardViews = listOf<CardViewChord>()
-    private val chords = listOf(
-        Chord(Note.A, Type.MINOR),
-        Chord(Note.B, Type.DIMINISHED),
-        Chord(Note.C, Type.MAJOR),
-        Chord(Note.D, Type.MINOR),
-        Chord(Note.E, Type.MINOR),
-        Chord(Note.F, Type.MAJOR),
-        Chord(Note.G, Type.MAJOR),
-    )
+
+    private val viewModel: JamViewModel by viewModels()
+    private val adapterJam: GenericFastItemAdapter = GenericFastItemAdapter()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentJamBinding.inflate(inflater)
@@ -65,27 +65,62 @@ class LetsJamFragment : Fragment(R.layout.fragment_jam) {
             )
         }
 
-        chords.forEachIndexed { index, chord ->
-            cardViews[index].apply {
-                chordName.text = chord.toDisplay()
-                chordNumber.text = index.toDegrees()
-                card.setOnClickListener {
-                    card.isChecked = !card.isChecked
+        viewModel.keyChords.observe(viewLifecycleOwner) {
+            it.forEachIndexed { index, chord ->
+                cardViews[index].apply {
+                    chordName.text = chord.toDisplay()
+                    chordNumber.text = index.toDegrees()
+                    chord.degrees = index
+                    card.setOnClickListener {
+                        card.isChecked = !card.isChecked
+                        if (card.isChecked) {
+                            viewModel.addJamChord(chord.degrees)
+                        } else {
+                            viewModel.removeJamChord(chord.degrees)
+                        }
+                    }
                 }
             }
-
         }
-        refreshScreen()
+
+        binding.recyclerViewJam.apply {
+            val dragCallback = SimpleDragCallback(SimpleDragCallback.LEFT_RIGHT, this@LetsJamFragment)
+            val touchHelper = ItemTouchHelper(dragCallback)
+            touchHelper.attachToRecyclerView(this)
+            adapter = adapterJam
+            layoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false)
+        }
+
+
+        viewModel.jamChords.observe(viewLifecycleOwner) {
+            Log.d("observe", it.toString())
+            refreshJamScreen()
+        }
+
     }
 
+    private fun refreshJamScreen() {
+        val items = arrayListOf<GenericItem>()
+        viewModel.jamChords.value?.forEach {
+            items += ChordJamItem(it)
+        }
+        adapterJam.setNewList(items)
+    }
 
-    private fun refreshScreen() {
+    override fun itemTouchOnMove(oldPosition: Int, newPosition: Int): Boolean {
+        DragDropUtil.onMove(adapterJam.itemAdapter, oldPosition, newPosition) // change position
+        return true
+    }
 
+    override fun itemTouchDropped(oldPosition: Int, newPosition: Int) {
+        val list = viewModel.jamChords.value
+        list?.moveAt(oldPosition, newPosition)
+        viewModel.jamChords.postValue(list)
     }
 }
 
-private fun Int.toDegrees(): String {
-    return when(this){
+fun Int.toDegrees(): String {
+    return when (this) {
         0 -> "I"
         1 -> "II"
         2 -> "III"
@@ -107,4 +142,16 @@ fun Context.themeColor(
     ).use {
         it.getColor(0, Color.MAGENTA)
     }
+}
+
+/**
+ * Moves the given item at the `oldIndex` to the `newIndex`
+ */
+fun <T> MutableList<T>.moveAt(oldIndex: Int, newIndex: Int) {
+    val item = this[oldIndex]
+    removeAt(oldIndex)
+    if (oldIndex > newIndex)
+        add(newIndex, item)
+    else
+        add(newIndex - 1, item)
 }

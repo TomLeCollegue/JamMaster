@@ -8,4 +8,5 @@
     <string name="email_card_transition_name">email_card_</string>
     <string name="email_card_detail_transition_name">email_card_detail</string>
     <string name="chords_of_the_key">Chords of the key</string>
+    <string name="jam_chords">Jam chords</string>
 </resources>

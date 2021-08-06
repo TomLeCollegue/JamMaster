@@ -2,20 +2,21 @@ package com.entreprisecorp.jammaster.fragments
 
 import android.os.Bundle
 import android.view.View
-import androidx.core.view.doOnPreDraw
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.entreprisecorp.jammaster.R
 import com.entreprisecorp.jammaster.fastitems.cardItem
 import com.google.android.material.transition.MaterialElevationScale
 import com.mikepenz.fastadapter.GenericItem
-import java.util.UUID
 
 class HomeFragment : RecyclerFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        supportActionBar?.show()
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.app_name)
+        (activity as AppCompatActivity).supportActionBar?.show()
+        (activity as AppCompatActivity).supportActionBar?.setIcon(R.drawable.ic_guitar)
         binding.recyclerView.isTransitionGroup = true
     }
 
